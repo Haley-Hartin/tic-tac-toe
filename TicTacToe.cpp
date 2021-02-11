@@ -54,7 +54,7 @@ std::string GetPlayerChoice(){
   std::cout << "Enter the number of the space to move to: "; // Type a number and press enter
   std::cin >> choice; // Get user input from the keyboard
   return choice;
-
+}
 /*
 * Places a marker onto the specified input location,
 * it distinguishes 'x' or 'o' by the player integer.
@@ -70,7 +70,7 @@ void PlaceMarker(std::vector<std::vector<std::string> >& board, std::string loca
 
     for (int i=0, m=board.size(); i<m; ++i) {
         for (int j=0, n=board[i].size(); j<n; ++j) {
-            if (!loc--) board[i][j] = player ? "o" : "x";
+            if (!--loc) board[i][j] = player ? "o" : "x";
         }
     }
 }
@@ -88,4 +88,5 @@ int main () {
     std::string choice = GetPlayerChoice();
 
     PlaceMarker(our_board, choice, player);
+    DisplayBoard(our_board);
 }
