@@ -68,9 +68,9 @@ std::string GetPlayerChoice(){
 void PlaceMarker(std::vector<std::vector<std::string> >& board, std::string location, int player) {
     int loc = std::stoi(location);
 
-    for (auto v : board) {
-        for (std::string s : v) {
-            if (!loc--) s = player ? "o" : "x";
+    for (int i=0, m=board.size(); i<m; ++i) {
+        for (int j=0, n=board[i].size(); j<n; ++j) {
+            if (!loc--) board[i][j] = player ? "o" : "x";
         }
     }
 }
