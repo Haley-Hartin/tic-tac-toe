@@ -10,7 +10,7 @@ This file containes the implementations of a tic tac toe game.
 /*
 * Creates a 2d-vector string board.
 *
-* @return new_board, newly created board. 
+* @return new_board, newly created board.
 */
 std::vector<std::vector<std::string> > CreateBoard() {
     std::vector<std::vector<std::string> > new_board(3, std::vector<std::string>(3, " "));
@@ -55,6 +55,7 @@ std::string GetPlayerChoice(){
   std::cin >> choice; // Get user input from the keyboard
   return choice;
 }
+
 /*
 * Places a marker onto the specified input location,
 * it distinguishes 'x' or 'o' by the player integer.
@@ -63,8 +64,8 @@ std::string GetPlayerChoice(){
 * @param location, a numerical designation for where the position of the player will be placed
 * @param player, signifies the player. i.e. 0='x', 1='o'
 *
-* @return none 
-*/ 
+* @return none
+*/
 void PlaceMarker(std::vector<std::vector<std::string> >& board, std::string location, int player) {
     int loc = std::stoi(location);
 
@@ -82,11 +83,19 @@ void PlaceMarker(std::vector<std::vector<std::string> >& board, std::string loca
  * @return None.
  */
 int main () {
+
     int player = 0;
     std::vector<std::vector<std::string> > our_board = CreateBoard();
-    DisplayBoard(our_board);
-    std::string choice = GetPlayerChoice();
+    for(int turn =0; turn<9; turn++){
 
-    PlaceMarker(our_board, choice, player);
+      DisplayBoard(our_board);
+      std::string choice = GetPlayerChoice();
+      PlaceMarker(our_board, choice, player);
+      player = !(player);
+
+    }
+
     DisplayBoard(our_board);
+    std::cout<<"The Game Is Over!"<<std::endl;
+
 }
