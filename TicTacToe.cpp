@@ -71,7 +71,7 @@ void PlaceMarker(std::vector<std::vector<std::string> >& board, std::string loca
 
     for (int i=0, m=board.size(); i<m; ++i) {
         for (int j=0, n=board[i].size(); j<n; ++j) {
-            if (!loc--) board[i][j] = player ? "o" : "x";
+            if (!--loc) board[i][j] = player ? "o" : "x";
         }
     }
 }
@@ -97,6 +97,5 @@ int main () {
 
     DisplayBoard(our_board);
     std::cout<<"The Game Is Over!"<<std::endl;
-
 
 }
